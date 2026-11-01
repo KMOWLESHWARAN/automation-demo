@@ -15,8 +15,8 @@ jobs:
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
+          host: 54.206.115.163
+          username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           source: "."
           target: "/home/ubuntu/app"
@@ -24,8 +24,8 @@ jobs:
       - name: Deploy Application
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
+          host: 54.206.115.163
+          username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/app
